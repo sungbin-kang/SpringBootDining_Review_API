@@ -12,21 +12,39 @@ A restaurant will have an overall score reviewed by customers as well as set of 
 
 
 ## Prerequisites
+
 - Java
 - Spring
 - curl
 
+
 ## Models
+
+<img src="" alt="ModelClassDiagram" />
 
 ### `Profile`
 
+Attributes:
 
-### `Admin`
+- id : Long
+- username : String
+- password : String
+- isAdmin : boolean
 
-### `User`
+### `Admin` extends `Profile`
+
+Methods:
+
++ approve(Review : review)
++ reject(Review : review)
+
+### `User` extends `Profile`
+
 
 ### `Restaurant`
+
 Attributes:
+
 - id : Long
 - name
 - addressLine1: String
@@ -36,15 +54,23 @@ Attributes:
 - zip : int
 - country : String
 
-- reviews : ArrayList<DiningReview>
-- scoreTotal : int
-- peanutScoreTotal : int
-- eggScoreTotal : int
-- dairyScoreTotal : int
-- reviewNum : int
+- scores : ArrayList<Integer>
+- peanutScores : ArrayList<Integer>
+- eggScores : ArrayList<Integer>
+- dairyScores : ArrayList<Integer>
+
+Methods:
+
++ getAveScore() : float
++ getAvePeanutScore() : float
++ getAveEggScore() : float
++ getAveDairyScore() : float
+
 
 ### `DiningReview`
+
 Attributes:
+
 - id : Long
 - username : String
 - restaurantID : Long
